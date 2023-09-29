@@ -3,11 +3,7 @@
     "create-react-app": "^5.0.1"
   },
   "scripts": {
-<<<<<<< HEAD
     "start": "cd react-frontend && npm start"
-=======
-    "start-root": "cd react-frontend && npm start"
->>>>>>> origin/main
   }
 
 }
