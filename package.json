@@ -3,7 +3,7 @@
     "create-react-app": "^5.0.1"
   },
   "scripts": {
-    "preinstall": "cd $(pwd)"
+    "preinstall": "cd react-frontend"
   }
 
 }
