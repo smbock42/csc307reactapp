@@ -42,11 +42,12 @@ const users = {
 }
 
 const findUserById = (id) =>
-    users['users_list']
-        .find( (user) => user['id'] === id);
+    users['users_list'].find( (user) => user['id'] === id);
 
  
 const addUser = (user) => {
+    const id = generateId();
+    user.id = id;
     users['users_list'].push(user);
     return user;
 }
@@ -54,6 +55,17 @@ const addUser = (user) => {
 const findUserByJobAndName = (name,job) => { 
     return users['users_list']
         .filter( (user) => user['name'] === name && user['job'] === job); 
+}
+
+function generateId() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let randomId = '';
+
+    for (let i = 0; i < 8; i ++)
+    {
+        randomId += characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+    return randomId
 }
 
 app.use(cors());
@@ -94,7 +106,7 @@ app.get('/users/:id', (req, res) => {
 app.post('/users', (req, res) => {
     const userToAdd = req.body;
     addUser(userToAdd);
-    res.send();
+    res.status(201).send(userToAdd);
 });
 
 app.delete('/users/:id', (req, res) => {
@@ -105,7 +117,7 @@ app.delete('/users/:id', (req, res) => {
     } else {
         let index = users['users_list'].indexOf(result);
         users['users_list'].splice(index, 1);
-        res.send(result);
+        res.status(204).send();
     }
 });
 
