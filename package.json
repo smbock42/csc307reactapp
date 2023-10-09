@@ -3,7 +3,7 @@
     "create-react-app": "^5.0.1"
   },
   "scripts": {
-    "start": "cd react-frontend && npm start"
+    "start": "cd packages && cd react-frontend && npm start"
   },
   "workspaces":[
     "packages/*"
