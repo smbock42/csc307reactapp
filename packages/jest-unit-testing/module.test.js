@@ -18,4 +18,3 @@ test('Testing div -- success', () => {
     expect(got).toBe(expected);
 })
 
-//test
